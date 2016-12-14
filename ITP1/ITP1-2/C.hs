@@ -5,7 +5,7 @@ import Data.List
 
 main :: IO ()
 main = do
-  [x,y,z] <- (map read . words) <$> getLine :: IO [Integer]
+  [x,y,z] <- (map read . words) <$> getLine
   putStrLn $ fromList $ sort [x,y,z]
 
 fromList :: [Integer] -> String
