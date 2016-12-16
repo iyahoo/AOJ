@@ -23,14 +23,7 @@ solve :: Int -> Dice -> Int -> IO ()
 solve 0 dice score = print (getTop dice + score)
 solve n dice score = do
   op <- getLine
-  score `seq` solve (n - 1) (move dice op) (getTop dice + score)
-
-
-
-
-
-
-
-
-
-
+  let score' = getTop dice + score
+  let ndice = move dice op
+  let newn = n - 1
+  newn `seq` ndice `seq` score' `seq` solve newn ndice score'
